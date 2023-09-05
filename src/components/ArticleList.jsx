@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import axios from "axios";
+import { getArticles } from "../utils/api";
 
 const ArticleList = () => {
 const [articles, setArticles] = useState([])
 
+
 useEffect(()=>{
-    axios.get("https://usmosis-be-nc-news.onrender.com/api/articles/")
+    getArticles()
     .then((response) => {
         const {articles} = response.data
-        console.log(articles, "<<<<<")
         setArticles(articles)
     })
 },[])
