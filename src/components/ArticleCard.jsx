@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 const ArticleCard = ({
     article_id, 
     author,
@@ -18,6 +21,7 @@ const ArticleCard = ({
         <img src={article_img_url}></img>
         <p>votes: {votes}</p>
         <p>comment_count: {comment_count}</p>
+        <Link to={`/articles/${article_id}`}><button>Read</button></Link>
         </>
     )
 }
