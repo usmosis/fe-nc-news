@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import { getArticleById } from "../utils/api";
+import CommentsList from "./CommentsList";
 
 
 const SingleArticle = () => {
@@ -26,6 +27,9 @@ const SingleArticle = () => {
         <p>created_at: {singleArticle.created_at}</p>
         <p>votes: {singleArticle.votes}</p>
         <img src={singleArticle.article_img_url}></img>
+        <CommentsList
+        article_id={article_id}
+        />
         </>
     )
 }

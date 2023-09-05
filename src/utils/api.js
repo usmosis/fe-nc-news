@@ -5,7 +5,11 @@ export const getArticles = () => {
 }
 export const getArticleById =(article_id) => {
     return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}/`)
-    
+
+}
+
+export const getComments =(article_id) => {
+    return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}/comments`)
 
 }
 
