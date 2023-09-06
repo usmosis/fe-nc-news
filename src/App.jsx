@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import SingleArticle from './components/SingleArticle'
 function App() {
 
+
   return (
     <>
     <Header/>

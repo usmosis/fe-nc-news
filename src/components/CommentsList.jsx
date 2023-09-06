@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { getComments } from "../utils/api";
 import CommentCard from "./CommentCard";
 
-const CommentsList = ({article_id}) => {
+const CommentsList = ({article_id, comments, setComments}) => {
 
-const [comments, setComments] = useState([])
+// const [comments, setComments] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
 useEffect(() => {
@@ -29,18 +29,18 @@ useEffect(() => {
         topic,
         article_img_url
     })=>{
-        return(
-         <CommentCard
-         key={comment_id}
-         body={body}
-         article_id={article_id}
-         author={author}
-         created_at={created_at}
-         title={title}
-         topic={topic}
-         article_img_url={article_img_url}
-         votes={votes}
-         />
+        return (
+            <CommentCard
+            key={comment_id}
+            body={body}
+            article_id={article_id}
+            author={author}
+            created_at={created_at}
+            title={title}
+            topic={topic}
+            article_img_url={article_img_url}
+            votes={votes}
+            />
  
         )
     }
