@@ -12,7 +12,7 @@ const CommentCard = ({
 }) => {
     return(
         <>
-        <p>{body}</p>
+        <p>body: {body}</p>
         <p>author: {author}</p>
         <p>created at: {created_at}</p>
         <p>votes: {votes}</p>

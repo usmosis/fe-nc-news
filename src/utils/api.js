@@ -21,3 +21,6 @@ export const decreaseVotes = (article_id) => {
     return axios.patch(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}`, {inc_votes: -1})
 }
 
+export const postNewComment = (article_id, newComment) => {
+    return axios.post(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}/comments`, newComment)
+}
