@@ -13,3 +13,11 @@ export const getComments =(article_id) => {
 
 }
 
+export const increaseVotes = (article_id) => {
+    return axios.patch(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}`, {inc_votes: 1})
+}
+
+export const decreaseVotes = (article_id) => {
+    return axios.patch(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}`, {inc_votes: -1})
+}
+
