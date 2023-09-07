@@ -12,6 +12,7 @@ export const SingleArticle = () => {
     const[singleArticle, setSingleArticle] = useState({})
     const[addComment, setAddComment] = useState("")
     const [comments, setComments] = useState([])
+    const [errorMessage, setErrorMessage] = useState("")
 
     const { article_id } = useParams()
     
@@ -63,7 +64,7 @@ export const SingleArticle = () => {
             setAddComment("")
         })
         .catch((err) => {
-            <p>Sorry, there was an error, please try again.</p>
+            setErrorMessage("Sorry, there was an error, your comment will not be displayed, please try again.")
         })
         
     }
@@ -94,7 +95,7 @@ export const SingleArticle = () => {
             />
             <button>Post</button>
         </form>
-        
+        {errorMessage && <p>{errorMessage}</p>}
         <CommentsList
         article_id={article_id}
         comments={comments}
