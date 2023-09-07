@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import { getArticles } from "../utils/api";
+import { getArticles, getArticlesByTopic } from "../utils/api";
+import { useParams } from "react-router-dom";
 
 const ArticleList = () => {
 const [articles, setArticles] = useState([])
 
+const {slug} = useParams()
 
 useEffect(()=>{
-    getArticles()
-    .then((response) => {
-        const {articles} = response.data
-        setArticles(articles)
-    })
-},[])
+    if(slug) {
+        
+        getArticlesByTopic(slug)
+        .then((response) => {
+            const {articles} = response.data
+            setArticles(articles)
+        })
+    } else {
+
+        getArticles()
+        .then((response) => {
+            const {articles} = response.data
+            setArticles(articles)
+        })
+    }
+},[slug])
 
 
     return articles.map(

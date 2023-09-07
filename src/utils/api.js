@@ -24,3 +24,11 @@ export const decreaseVotes = (article_id) => {
 export const postNewComment = (article_id, newComment) => {
     return axios.post(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}/comments`, newComment)
 }
+
+export const getTopics = () => {
+    return axios.get("https://usmosis-be-nc-news.onrender.com/api/topics")
+}
+
+export const getArticlesByTopic = (slug) => {
+    return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles?topic=${slug}`)
+}
