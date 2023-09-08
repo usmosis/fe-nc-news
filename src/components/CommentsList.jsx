@@ -4,7 +4,6 @@ import CommentCard from "./CommentCard";
 
 const CommentsList = ({article_id, comments, setComments}) => {
 
-// const [comments, setComments] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
 useEffect(() => {
@@ -15,7 +14,7 @@ useEffect(() => {
         setComments(comments);
         setIsLoading(false)
     })
-},[])
+},[article_id])
     if(isLoading) return <p>...loading</p>
     if(comments.length === 0) return <p>There are no comments yet, be the first to post one!</p>
     return comments.map(({
@@ -32,6 +31,7 @@ useEffect(() => {
         return (
             <CommentCard
             key={comment_id}
+            comment_id={comment_id}
             body={body}
             article_id={article_id}
             author={author}

@@ -17,7 +17,6 @@ export const SingleArticle = () => {
     const { article_id } = useParams()
     
     useEffect(()=>{
-        console.log("<<<<byId")
         getArticleById(article_id)
         .then((response) => {
             const {article} = response.data
