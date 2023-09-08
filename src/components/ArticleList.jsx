@@ -3,28 +3,21 @@ import ArticleCard from "./ArticleCard";
 import { getArticles, getArticlesByTopic } from "../utils/api";
 import { useParams } from "react-router-dom";
 
-const ArticleList = () => {
+const ArticleList = ({sortBy, order}) => {
 const [articles, setArticles] = useState([])
 
 const {slug} = useParams()
 
 useEffect(()=>{
-    if(slug) {
-        
-        getArticlesByTopic(slug)
-        .then((response) => {
-            const {articles} = response.data
-            setArticles(articles)
-        })
-    } else {
 
-        getArticles()
+        
+        getArticlesByTopic(slug, sortBy, order)
         .then((response) => {
             const {articles} = response.data
             setArticles(articles)
         })
-    }
-},[slug])
+
+},[slug, sortBy, order])
 
 
     return articles.map(
