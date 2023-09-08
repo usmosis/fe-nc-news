@@ -32,3 +32,7 @@ export const getTopics = () => {
 export const getArticlesByTopic = (slug, sortBy, order) => {
     return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles`, {params:{topic: slug, sort_by:sortBy, order:order}})
 }
+
+export const deleteCommentById = (comment_id) => {
+    return axios.delete(`https://usmosis-be-nc-news.onrender.com/api/comments/${comment_id}`)
+}
