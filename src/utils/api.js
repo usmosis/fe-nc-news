@@ -1,7 +1,7 @@
 import axios from "axios"
 
-export const getArticles = () => {
-    return axios.get("https://usmosis-be-nc-news.onrender.com/api/articles/")
+export const getArticles = (slug, sortBy, order) => {
+    return axios.get("https://usmosis-be-nc-news.onrender.com/api/articles/", {params:{topic: slug, sort_by:sortBy, order:order}})
 }
 export const getArticleById =(article_id) => {
     return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles/${article_id}/`)
@@ -29,6 +29,6 @@ export const getTopics = () => {
     return axios.get("https://usmosis-be-nc-news.onrender.com/api/topics")
 }
 
-export const getArticlesByTopic = (slug) => {
-    return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles?topic=${slug}`)
+export const getArticlesByTopic = (slug, sortBy, order) => {
+    return axios.get(`https://usmosis-be-nc-news.onrender.com/api/articles`, {params:{topic: slug, sort_by:sortBy, order:order}})
 }
